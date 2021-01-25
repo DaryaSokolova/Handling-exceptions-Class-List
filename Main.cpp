@@ -1,4 +1,4 @@
-#include <math.h>
+п»ї#include <math.h>
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -12,19 +12,19 @@
 
 using namespace std;
 
-//запись в файл
+//Р·Р°РїРёСЃСЊ РІ С„Р°Р№Р»
 std::ostream& operator << (std::ostream& os, const AdressClass& a)
 {
 	return os << a.Town << " " << a.Street << " " << a.House << " " << a.Number << " " << a.Price << " " << a.Name;
 }
 
-//чтение с файла
+//С‡С‚РµРЅРёРµ СЃ С„Р°Р№Р»Р°
 std::istream& operator >> (std::istream& in, AdressClass& p)
 {
 	in >> p.Town >> p.Street >> p.House >> p.Number >> p.Price >> p.Name;
 	if (!in) 
 	{
-		//проверим все ли хорошо
+		//РїСЂРѕРІРµСЂРёРј РІСЃРµ Р»Рё С…РѕСЂРѕС€Рѕ
 		throw My_File_Error();
 	}
 	return in;
@@ -36,14 +36,14 @@ int main()
 
 	try
 	{
-		//AdressClass Adress1("", "рвпрд", 90, 426, 500, "Иванов");
-		//AdressClass Adress1("Энгельс", "Вольская", 90, 426, 500, "Иванов");
-		//AdressClass Adress1("Энгельс", "Вольская", 57, INT_MAX, 500, "Иванов");
+		//AdressClass Adress1("", "СЂРІРїСЂРґ", 90, 426, 500, "РРІР°РЅРѕРІ");
+		//AdressClass Adress1("Р­РЅРіРµР»СЊСЃ", "Р’РѕР»СЊСЃРєР°СЏ", 90, 426, 500, "РРІР°РЅРѕРІ");
+		//AdressClass Adress1("Р­РЅРіРµР»СЊСЃ", "Р’РѕР»СЊСЃРєР°СЏ", 57, INT_MAX, 500, "РРІР°РЅРѕРІ");
 		//cout << Adress1.Info() << endl;
 		//Adress1.setUpPrice(-5);
 		//Adress1.setDownPrice(5);
 		//Adress1.setName("");
-		//Adress1.setName("Соколов");
+		//Adress1.setName("РЎРѕРєРѕР»РѕРІ");
 		//cout << Adress1.Info() << endl;
 	}
 	catch (const char* msg)
@@ -56,11 +56,11 @@ int main()
 	}
 	catch (...)
 	{
-		cerr << "Что-то не так";
+		cerr << "Р§С‚Рѕ-С‚Рѕ РЅРµ С‚Р°Рє";
 	}
 
-	//для записи в файл
-	/*AdressClass AdressForFile("Энгельс", "Вольская", 90, 426, 500, "Иванов");
+	//РґР»СЏ Р·Р°РїРёСЃРё РІ С„Р°Р№Р»
+	/*AdressClass AdressForFile("Р­РЅРіРµР»СЊСЃ", "Р’РѕР»СЊСЃРєР°СЏ", 90, 426, 500, "РРІР°РЅРѕРІ");
 
 	std::ofstream out("intest.txt");
 	if (out.is_open())
@@ -69,32 +69,32 @@ int main()
 	}
 	out.close();*/
 
-	//лист
+	//Р»РёСЃС‚
 	List cList;
 	AdressClass* t;
 
 	try
 	{
-		// чтение ранее записанных данных из файла
+		// С‡С‚РµРЅРёРµ СЂР°РЅРµРµ Р·Р°РїРёСЃР°РЅРЅС‹С… РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°
 		std::ifstream in("intest.txt");
 		if (in.is_open())
 		{
 			AdressClass p;
 			in >> p;
 			t = new AdressClass(p);
-			cList.push(t); //добавляем в лист
+			cList.push(t); //РґРѕР±Р°РІР»СЏРµРј РІ Р»РёСЃС‚
 		}
 		in.close();
-		cList.print(); //выводим лист
+		cList.print(); //РІС‹РІРѕРґРёРј Р»РёСЃС‚
 	}
-	//обработка исключения (полиморфизм)
+	//РѕР±СЂР°Р±РѕС‚РєР° РёСЃРєР»СЋС‡РµРЅРёСЏ (РїРѕР»РёРјРѕСЂС„РёР·Рј)
 	catch (MyError& err)
 	{
 		err.print();
 	}
 	catch (...)
 	{
-		cerr << "Что-то не так";
+		cerr << "Р§С‚Рѕ-С‚Рѕ РЅРµ С‚Р°Рє";
 	}
 
 	return 0;

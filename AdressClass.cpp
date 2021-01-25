@@ -1,4 +1,4 @@
-#include "AdressClass.h"
+п»ї#include "AdressClass.h"
 #include "MyError.h"
 #include <iostream>
 #include <string>
@@ -9,8 +9,8 @@ AdressClass::AdressClass(string t, string st, int h, int num, int price, string 
 {
 	if (t == "")
 	{
-		//throw 0; //для вывода что-то не так - любое исключение
-		//throw "Неверно указан город!"; //для мессаджа
+		//throw 0; //РґР»СЏ РІС‹РІРѕРґР° С‡С‚Рѕ-С‚Рѕ РЅРµ С‚Р°Рє - Р»СЋР±РѕРµ РёСЃРєР»СЋС‡РµРЅРёРµ
+		//throw "РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ РіРѕСЂРѕРґ!"; //РґР»СЏ РјРµСЃСЃР°РґР¶Р°
 		throw MyError();
 		//throw My_Bad_Alloc();
 		//throw My_File_Error();
@@ -19,31 +19,31 @@ AdressClass::AdressClass(string t, string st, int h, int num, int price, string 
 	if (st == "")
 	{
 		//throw;
-		throw "Неверно указана улица!";
+		throw "РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅР° СѓР»РёС†Р°!";
 	}
 
 	if (h <= 0)
 	{
 		//throw;
-		throw "Неверно указан дом!";
+		throw "РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ РґРѕРј!";
 	}
 
 	if (num <= 0)
 	{
 		//throw;
-		throw "Неверно указана квартира!";
+		throw "РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅР° РєРІР°СЂС‚РёСЂР°!";
 	}
 
 	if (price <= 0)
 	{
 		//throw;
-		throw "Неверно указана цена!";
+		throw "РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅР° С†РµРЅР°!";
 	}
 
 	if (name == "")
 	{
 		//throw;
-		throw "Неверно указан владелец!";
+		throw "РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ РІР»Р°РґРµР»РµС†!";
 	}
 
 	if ((h == INT_MAX) || (num == INT_MAX) || (price == INT_MAX))
@@ -98,70 +98,70 @@ bool AdressClass::ChangePrice(int temp)
 	return true;
 }
 
-bool AdressClass::setUpPrice(int h) // аренда может увеличиться
+bool AdressClass::setUpPrice(int h) // Р°СЂРµРЅРґР° РјРѕР¶РµС‚ СѓРІРµР»РёС‡РёС‚СЊСЃСЏ
 {
 	if (h <= 0)
 	{
 		//throw MyError();
-		throw "Введено <= 0";
+		throw "Р’РІРµРґРµРЅРѕ <= 0";
 	}
 	return ChangePrice(h);
 }
 
-bool AdressClass::setDownPrice(int h) //аренда может уменьшиться
+bool AdressClass::setDownPrice(int h) //Р°СЂРµРЅРґР° РјРѕР¶РµС‚ СѓРјРµРЅСЊС€РёС‚СЊСЃСЏ
 {
 	if (h <= 0)
 	{
 		//throw MyError();
-		throw "Введено <= 0";
+		throw "Р’РІРµРґРµРЅРѕ <= 0";
 	}
 	return ChangePrice(-h);
 }
 
-bool AdressClass::setName(string nm) //у квартиры есть владелец или сменился
+bool AdressClass::setName(string nm) //Сѓ РєРІР°СЂС‚РёСЂС‹ РµСЃС‚СЊ РІР»Р°РґРµР»РµС† РёР»Рё СЃРјРµРЅРёР»СЃСЏ
 {
 	if (nm == "")
 	{
 		//throw MyError();
-		throw "Введена пустота";
+		throw "Р’РІРµРґРµРЅР° РїСѓСЃС‚РѕС‚Р°";
 	}
 	Name = nm;
 	return true;
 }
 
-void AdressClass::Remont() // квартира ремонтируется. ремонтироваться может только правильная квартира (та, которая создана)
+void AdressClass::Remont() // РєРІР°СЂС‚РёСЂР° СЂРµРјРѕРЅС‚РёСЂСѓРµС‚СЃСЏ. СЂРµРјРѕРЅС‚РёСЂРѕРІР°С‚СЊСЃСЏ РјРѕР¶РµС‚ С‚РѕР»СЊРєРѕ РїСЂР°РІРёР»СЊРЅР°СЏ РєРІР°СЂС‚РёСЂР° (С‚Р°, РєРѕС‚РѕСЂР°СЏ СЃРѕР·РґР°РЅР°)
 {
-	cout << "По адресу " << Info() << " ремонтируют квартиру\n";
+	cout << "РџРѕ Р°РґСЂРµСЃСѓ " << Info() << " СЂРµРјРѕРЅС‚РёСЂСѓСЋС‚ РєРІР°СЂС‚РёСЂСѓ\n";
 	cout << "@  \n";
 	cout << "   @\n";
 	cout << "@  \n";
 	cout << "   @\n";
 }
 
-void AdressClass::Cleaning() // квартира убирается. убираться может только правильная квартира (та, которая создана)
+void AdressClass::Cleaning() // РєРІР°СЂС‚РёСЂР° СѓР±РёСЂР°РµС‚СЃСЏ. СѓР±РёСЂР°С‚СЊСЃСЏ РјРѕР¶РµС‚ С‚РѕР»СЊРєРѕ РїСЂР°РІРёР»СЊРЅР°СЏ РєРІР°СЂС‚РёСЂР° (С‚Р°, РєРѕС‚РѕСЂР°СЏ СЃРѕР·РґР°РЅР°)
 {
-	cout << "По адресу " << Info() << " убираются клининг-службы " << "_\n";
+	cout << "РџРѕ Р°РґСЂРµСЃСѓ " << Info() << " СѓР±РёСЂР°СЋС‚СЃСЏ РєР»РёРЅРёРЅРі-СЃР»СѓР¶Р±С‹ " << "_\n";
 }
 
 void AdressClass::Water() {
-	cout << "По адресу " << Info() << " проведена горячая вода " << "_\n";
+	cout << "РџРѕ Р°РґСЂРµСЃСѓ " << Info() << " РїСЂРѕРІРµРґРµРЅР° РіРѕСЂСЏС‡Р°СЏ РІРѕРґР° " << "_\n";
 }
 
 void AdressClass::Warm() {
-	cout << "По адресу " << Info() << " временно отключен газ " << "_\n";
+	cout << "РџРѕ Р°РґСЂРµСЃСѓ " << Info() << " РІСЂРµРјРµРЅРЅРѕ РѕС‚РєР»СЋС‡РµРЅ РіР°Р· " << "_\n";
 }
 
 void AdressClass::Gas() {
-	cout << "По адресу " << Info() << " проведено отопление " << "_\n";
+	cout << "РџРѕ Р°РґСЂРµСЃСѓ " << Info() << " РїСЂРѕРІРµРґРµРЅРѕ РѕС‚РѕРїР»РµРЅРёРµ " << "_\n";
 }
 
 string AdressClass::Info()
 {
 	return Town + ", " + Street + ", "
-		+ to_string(House) + ", кв" + to_string(Number)
-		+ ", владельцы - "
+		+ to_string(House) + ", РєРІ" + to_string(Number)
+		+ ", РІР»Р°РґРµР»СЊС†С‹ - "
 		+ Name
-		+ ", аренда: "
+		+ ", Р°СЂРµРЅРґР°: "
 		+ to_string(Price);
 }
 

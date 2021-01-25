@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <iostream>
 
 using namespace std;
@@ -16,7 +16,7 @@ class My_Bad_Alloc :public MyError
 {
 	void print() override
 	{
-		cerr << "ÏÅÐÅÏÎËÍÅÍÈÅ???";
+		cerr << "ÐŸÐ•Ð Ð•ÐŸÐžÐ›ÐÐ•ÐÐ˜Ð•???";
 	}
 };
 
@@ -24,6 +24,6 @@ class My_File_Error: public MyError
 {
 	void print() override
 	{
-		cerr << "×ÒÎ_ÒÎ Ñ ÔÀÉËÎÌ???";
+		cerr << "Ð§Ð¢Ðž_Ð¢Ðž Ð¡ Ð¤ÐÐ™Ð›ÐžÐœ???";
 	}
 };

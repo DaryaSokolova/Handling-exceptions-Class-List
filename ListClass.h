@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <math.h>
 #include <iostream>
 
@@ -32,11 +32,11 @@ public:
 
 	List() { head = NULL; tail = NULL; }
 
-	void push(AdressClass* x); //добавление в конец списка
+	void push(AdressClass* x); //РґРѕР±Р°РІР»РµРЅРёРµ РІ РєРѕРЅРµС† СЃРїРёСЃРєР°
 
-	void print(); //вывод списка
+	void print(); //РІС‹РІРѕРґ СЃРїРёСЃРєР°
 
-	bool findBool(AdressClass* x); //проверить на повторение
+	bool findBool(AdressClass* x); //РїСЂРѕРІРµСЂРёС‚СЊ РЅР° РїРѕРІС‚РѕСЂРµРЅРёРµ
 
 	void insert_after(node* x, AdressClass* y); //
 
